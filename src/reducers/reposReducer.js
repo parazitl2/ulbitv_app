@@ -1,9 +1,13 @@
-const SET_REPOS = 'SET_REPOS';
+const SET_REPOS = "SET_REPOS";
 const SET_IS_FETCHING = "SET_IS_FETCHING";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 
 const defaultState = {
   items: [],
   isFetching: true,
+  currentPage: 1,
+  perPage: 10,
+  totalCount: 0,
 };
 
 export default function(state = defaultState, action) {
@@ -12,15 +16,23 @@ export default function(state = defaultState, action) {
       return {
         ...state,
         items: action.payload.items,
+        totalCount: action.payload.total_count,
         isFetching: false
-      }
+      };
     }
 
     case SET_IS_FETCHING:{
       return {
         ...state,
         isFetching: action.payload
-      }
+      };
+    }
+
+    case SET_CURRENT_PAGE: {
+      return {
+        ...state,
+        currentPage: action.payload
+      };
     }
 
     default: {
@@ -37,4 +49,9 @@ export const setRepos = (repos) => ({
 export const setIsFetching = (bool) => ({ 
   type: SET_IS_FETCHING, 
   payload: bool
+});
+
+export const setCurrentPage = (pageNum) => ({ 
+  type: SET_CURRENT_PAGE, 
+  payload: pageNum
 });
