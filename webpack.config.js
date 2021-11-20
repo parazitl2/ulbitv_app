@@ -11,7 +11,8 @@ module.exports = {
   },
   devServer: {
     static: './src',
-    port: 3000
+    port: 3000,
+    historyApiFallback: true
   },
   resolve: {
     extensions: ['.js', '.jsx'],
