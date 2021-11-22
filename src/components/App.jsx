@@ -10,6 +10,7 @@ import {
 import './app.less';
 import Card from "./cards/Card";
 import Main from "./main/Main";
+import Error from "./main/Error";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const App = () => {
         <Routes>
           <Route exact path='/' element={<Main />}/>
           <Route exact path='/card/:username/:reponame' element={<Card />}/>
+          <Route exact path='/error' element={<Error />}/>
           <Route path='*' element={<Navigate to='/'/>}/>
         </Routes>
       </div>
