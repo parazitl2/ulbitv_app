@@ -7,7 +7,7 @@ const Repo = ({ repo }) => {
   return (
     <div className='repo'>
       <div className="repo-header">
-        <NavLink to={`/card`}>
+        <NavLink to={`/card/${repo.owner.login}/${repo.name}`}>
           <div className="repo-header-name">Репозиторий <span className="bold">{repo.name}</span></div>
         </NavLink>
         <div className="repo-header-stars">Звёзд {repo.stargazers_count}</div>
